@@ -1,0 +1,30 @@
+@import "../../styles/_variables.scss";
+
+.Grid {
+  width: 100%;
+  max-width: $max-width-card-small;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: 20px;
+  position: relative;
+}
+
+@include breakpoint(large) {
+  .Grid {
+    max-width: $max-width-screen-large;
+    grid-row-gap: 50px;
+  }
+
+  .Grid1Large {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 385px;
+  }
+
+  .Grid2Large {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .Grid3Large {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,21 @@
+$breakpoints: (
+  base: 0,
+  small: 540px,
+  medium: 768px,
+  large: 1024px,
+  xlarge: 1200px
+);
+
+@mixin breakpoint($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+$max-width-screen-large: 1280px;
+$max-width-card-small: 380px;
+
+$montserrat: "Montserrat", sans-serif;
+$source-sans-pro: "Source Sans Pro", sans-serif;
+$open-sans: "Open Sans", sans-serif;

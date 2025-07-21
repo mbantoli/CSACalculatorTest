@@ -1,0 +1,76 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.IconWrapper {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BreadcrumbRow {
+  display: flex;
+  list-style: none;
+  padding-left: 18px;
+}
+
+.BreadcrumbItem {
+  display: flex;
+  padding: 20px 4px;
+  text-decoration: none;
+  align-items: center;
+  height: 100%;
+}
+
+.BreadcrumbText {
+  display: none;
+  margin-right: 12px;
+  margin-left: 12px;
+  font-weight: 600;
+  color: black;
+  font-family: $montserrat;
+  font-size: 12px;
+  letter-spacing: 0.4pt;
+  text-transform: uppercase;
+
+  &Faded {
+    opacity: 0.4;
+  }
+}
+
+.MiniCrumbs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.CrumbButton {
+  padding: 0;
+  margin: 0;
+  border: none;
+  padding: 0 14px;
+  margin: 0 4px;
+  background-color: white;
+}
+
+.MiniCrumbItem {
+  display: block;
+  margin: 0;
+}
+
+@include breakpoint(large) {
+  .BreadcrumbRow {
+    padding-left: 0;
+  }
+
+  .BreadcrumbItem {
+    padding: 18px 18px;
+  }
+
+  .BreadcrumbText {
+    display: block;
+  }
+}

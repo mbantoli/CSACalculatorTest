@@ -1,0 +1,32 @@
+@import "../styles/colors";
+@import "../styles/variables";
+
+.AttachmentOption {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  line-height: 15px;
+  color: $lunar-green;
+  margin-top: 7px;
+}
+
+.OptionSelected {
+  color: $white;
+}
+
+@include breakpoint(medium) {
+  .Options {
+    max-width: 700px;
+  }
+
+  .OptionLabel {
+    width: 100%;
+    max-width: 220px;
+    margin-bottom: 20px;
+    height: 83px;
+
+    &:nth-child(3) {
+      margin-right: 0;
+    }
+  }
+}

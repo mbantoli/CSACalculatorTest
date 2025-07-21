@@ -1,0 +1,35 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.Wrapper {
+  background-color: $chablis-pink;
+  padding: 0;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.ShowError {
+  height: auto;
+  padding: 8px 24px;
+  opacity: 1;
+  bottom: 56px;
+}
+
+.Text {
+  color: $torch-red;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+}
+
+@include breakpoint(medium) {
+  .ShowError {
+    bottom: 71px;
+  }
+}

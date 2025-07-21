@@ -1,0 +1,52 @@
+@import "../../styles/_colors.scss";
+@import "../../styles/variables.scss";
+
+.SystemCard {
+  width: 300px;
+  max-width: $max-width-card-small;
+  height: 100%;
+  margin: 10px;
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  padding: 13px 30px 22px;
+  overflow: hidden;
+  background-color: #f8f8f8;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  color: hsl(213, 18%, 27%);
+
+  // implements grid display for supporting browsers.
+  @supports (display: grid) {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+}
+
+.Logo {
+  width: 238px;
+}
+
+.LogoWrapper {
+  padding-bottom: 30px;
+  border-bottom: solid 1px $alto-grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SystemId {
+  color: black;
+  text-align: center;
+  padding: 26px 0 19px;
+  font-family: $montserrat;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.69px;
+}

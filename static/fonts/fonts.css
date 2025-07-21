@@ -1,0 +1,26 @@
+/* Webfont: NewslabMedium */
+@font-face {
+  font-family: "NewslabMedium";
+  src: url("./NewslabMedium.eot"); /* IE9 Compat Modes */
+  src: url("./NewslabMedium.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("./NewslabMedium.woff") format("woff"),
+    /* Modern Browsers */ url("./NewslabMedium.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("./NewslabMedium.svg#NewslabMedium")
+      format("svg"); /* Legacy iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+/* Webfont: NewslabBook */
+@font-face {
+  font-family: "NewslabBook";
+  src: url("NewslabBook.eot"); /* IE9 Compat Modes */
+  src: url("NewslabBook.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("NewslabBook.woff") format("woff"),
+    /* Modern Browsers */ url("NewslabBook.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("NewslabBook.svg#NewslabBook") format("svg"); /* Legacy iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}

@@ -1,0 +1,138 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.Layout {
+  padding: 69px 0;
+  width: 100%;
+}
+
+.Header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-bottom: $dusty-grey 1px solid;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 12px 14px;
+}
+
+.HeaderTitle {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  line-height: 23px;
+  color: black;
+  font-family: $source-sans-pro;
+  font-weight: 400;
+}
+
+.HeaderSubtitle {
+  margin-top: auto;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 23px;
+  font-family: $source-sans-pro;
+  color: $lunar-green;
+}
+
+.HeaderLastUpdated {
+  font-size: 12px;
+  color: $lunar-green;
+}
+
+.HeaderImage {
+  height: 17px;
+
+  &Wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.Footer {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.FooterContent {
+  background-color: $white;
+  border-top: $dusty-grey 1px solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.NextButton {
+  font-family: $montserrat;
+  text-transform: uppercase;
+  height: auto;
+  width: 158px;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border: 0;
+  box-shadow: 0 0 0 1px black;
+  color: $white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.csaLegalContainer {
+  position: relative;
+}
+
+.csaLegalContent {
+  overflow-y: auto;
+  margin: 40px auto 80px auto;
+  font-size: 11px;
+  line-height: 20px;
+  color: #999;
+  width: 80%;
+}
+
+@include breakpoint(large) {
+  .csaLegalContent {
+	  width: 50%;
+  }
+}
+
+@include breakpoint(medium) {
+  .Header {
+    padding: 12px 53px 16px 46px;
+  }
+
+  .HeaderTitle {
+    align-items: flex-end;
+    flex-direction: row;
+    margin-bottom: 2px;
+  }
+
+  .HeaderSubtitle {
+    margin-left: 16px;
+    font-size: 18px;
+  }
+
+  .HeaderLastUpdated {
+    font-size: 14px;
+  }
+
+  .NextButton {
+    width: 182px;
+  }
+
+  .HeaderImage {
+    height: 29px;
+  }
+
+  .Layout {
+    padding: 48px 0 0;
+  }
+}

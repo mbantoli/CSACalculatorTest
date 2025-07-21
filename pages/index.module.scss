@@ -1,0 +1,60 @@
+@import "../styles/_colors";
+@import "../styles/_variables";
+
+.Subtitle {
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  color: $lunar-green;
+  font-weight: 400;
+  padding-bottom: 33px;
+}
+
+.Page {
+  padding: 100px 0;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: $white;
+  overflow: hidden;
+}
+
+.Button {
+  height: 100px;
+  width: 200px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: black;
+  border: 0;
+  box-shadow: 0 0 0 1px black;
+  color: $white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  &:last-of-type {
+    margin: 0;
+  }
+}
+
+.Links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.SwitchButton {
+  margin-top: 14px;
+}
+
+@include breakpoint(medium) {
+  .Links {
+    flex-direction: row;
+  }
+}

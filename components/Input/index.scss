@@ -1,0 +1,67 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.Input {
+  position: relative;
+  width: 100%;
+  max-width: 238px;
+  margin-bottom: 6px; // 20px;
+}
+
+.Field {
+  width: 100%;
+  padding: 10px 40% 3px 0;
+  background-color: $white;
+  border-style: none;
+  box-shadow: inset 0 0 0 1px $silver-chalice-grey;
+  border-radius: 6px;
+  font-family: "NewslabBook";
+  font-size: 46px;
+  font-weight: 300;
+  line-height: 46px;
+  text-align: right;
+
+  &::placeholder {
+    opacity: 0.3;
+  }
+
+  &:focus:not(.FieldError) {
+    box-shadow: inset 0 0 0 1.5px black;
+    outline: none;
+  }
+
+  &:focus:not(.FieldError) ~ .Suffix {
+    color: black;
+  }
+
+  &Error {
+    box-shadow: inset 0 0 0 1px $torch-red;
+    outline: none;
+  }
+}
+
+.Suffix {
+  position: absolute;
+  top: 50%;
+  left: calc(60% + 14px);
+  transform: translate(0, -50%);
+  pointer-events: none;
+  font-size: 18px;
+  line-height: 24px;
+  color: black;
+  font-family: $source-sans-pro;
+  color: black;
+
+  &Error {
+    color: $torch-red;
+  }
+}
+
+.ErrorMessage {
+  width: 100%;
+  color: $torch-red;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  margin: 6px 17px;
+}

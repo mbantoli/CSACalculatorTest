@@ -1,0 +1,18 @@
+@import "../styles/colors";
+
+.OptionButton {
+  padding: 16px 12px 12px;
+}
+
+.AttachmentOption {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  line-height: 15px;
+  color: $lunar-green;
+  margin-top: 7px;
+}
+
+.OptionSelected {
+  color: $white;
+}
