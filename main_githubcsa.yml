@@ -3,43 +3,72 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-trigger:
-- master
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-pool:
-  vmImage: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read #This is required for actions/checkout
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '12.22.12'
-  displayName: 'Install Node.js'
+    steps:
+      - uses: actions/checkout@v4
 
-- script: |
-    yarn set version v1.22.19
-    yarn install
-    yarn build
-    yarn deploy
-    npm build
-    yarn add test    
-    
- 
-  displayName: 'npm install and build'
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '12.22.12'
 
-- task: CopyFiles@2
-  inputs:
-    Contents: |
-      src/**
-        public/**
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    OverWrite: true
-  displayName: 'copy project files'
+      - name: npm install, build, and test
+        run: |
+            yarn set version v1.22.19
+            yarn install
+            yarn build
+            yarn deploy
+            npm build
+            yarn add test    
 
+      - name: Zip artifact for deployment
+        run: zip release.zip ./* -r
 
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: node-app
+          path: release.zip
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: node-app
+
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
+      
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.__clientidsecretname__ }}
+          tenant-id: ${{ secrets.__tenantidsecretname__ }}
+          subscription-id: ${{ secrets.__subscriptionidsecretname__ }}
+
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'githubcsa'
+          slot-name: 'Production'
+          package: .
  
